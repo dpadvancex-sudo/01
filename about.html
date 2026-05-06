@@ -115,7 +115,8 @@
 <div class="text-xl font-bold tracking-tighter text-[#003366] dark:text-white">
                 V-CON Engineering
             </div>
-<nav class="hidden md:flex gap-gutter items-center">
+<!-- เพิ่ม id และ class สำหรับแสดงผลบนมือถือ -->
+<nav id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b md:relative md:top-0 md:flex md:w-auto md:bg-transparent md:border-none shadow-lg md:shadow-none flex-col md:flex-row p-6 md:p-8 gap-4 md:gap-8 items-start md:items-center z-50">
 <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#003366] dark:hover:text-white transition-colors duration-200" href="index.html">หน้าแรก</a>
 <a class="text-[#003366] dark:text-blue-400 border-b-2 border-[#003366] dark:border-blue-400 pb-1 font-bold hover:text-[#003366] dark:hover:text-white transition-colors duration-200" href="about.html">เกี่ยวกับเรา</a>
 <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#003366] dark:hover:text-white transition-colors duration-200" href="services.html">บริการของเรา</a>
@@ -126,8 +127,8 @@
 <button class="hidden md:flex items-center justify-center bg-secondary-container text-on-secondary-fixed font-label-sm px-6 py-3 rounded hover:bg-opacity-90 transition-all font-bold">
                 ขอใบเสนอราคา
             </button>
-<button class="md:hidden p-2 text-on-surface">
-<span class="material-symbols-outlined">menu</span>
+<button onclick="toggleMenu()" class="md:hidden p-2 text-on-surface focus:outline-none">
+    <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </header>
@@ -290,3 +291,13 @@
 </div>
 </footer>
 </body></html>
+
+<script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // สั่งให้สลับคลาส hidden (ซ่อน) และ flex (แสดง)
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+    </script>
+</body>
