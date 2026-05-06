@@ -112,24 +112,33 @@
 </head>
 <body class="bg-background font-body-md text-on-surface">
 <!-- Top Navigation Bar -->
-<header class="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm fixed top-0 left-0 right-0 z-50">
-<nav class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto w-full font-['Manrope'] antialiased">
-<div class="text-xl font-bold tracking-tighter text-[#003366] dark:text-white uppercase">
+<header class="bg-white/95 backdrop-blur-md sticky full-width top-0 z-50 border-b border-slate-200 shadow-sm font-['Manrope'] antialiased">
+<div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto w-full">
+<!-- Brand Logo -->
+<a class="text-xl font-bold tracking-tighter text-[#003366]" href="#">
                 V-CON Engineering
-            </div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#003366] transition-colors duration-200" href="index.html">หน้าแรก</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#003366] transition-colors duration-200" href="about.html">เกี่ยวกับเรา</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#003366] transition-colors duration-200" href="services.html">บริการของเรา</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#003366] transition-colors duration-200" href="safety.html">ความปลอดภัย</a>
-<a class="text-[#003366] dark:text-blue-400 border-b-2 border-[#003366] dark:border-blue-400 pb-1 font-bold" href="portfolio.html">ผลงาน</a>
-<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-[#003366] transition-colors duration-200" href="contact.html">ติดต่อเรา</a>
-</div>
+            </a>
+<!-- Navigation Links -->
+<!-- เพิ่ม id และ class สำหรับแสดงผลบนมือถือ -->
+<nav id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b md:relative md:top-0 md:flex md:w-auto md:bg-transparent md:border-none shadow-lg md:shadow-none flex-col md:flex-row p-6 md:p-8 gap-4 md:gap-8 items-start md:items-center z-50">
+<a class="text-slate-600 font-medium h-full flex items-center hover:text-[#003366] transition-colors duration-200" href="index.html">หน้าแรก</a>
+<a class="text-slate-600 font-medium h-full flex items-center hover:text-[#003366] transition-colors duration-200" href="about.html">เกี่ยวกับเรา</a>
+<a class="text-slate-600 font-medium h-full flex items-center hover:text-[#003366] transition-colors duration-200" href="services.html">บริการของเรา</a>
+<a class="text-slate-600 font-medium h-full flex items-center hover:text-[#003366] transition-colors duration-200" href="safety.html">ความปลอดภัย</a>
+<a class="text-[#003366] border-b-2 border-[#003366] pb-1 font-bold h-full flex items-center hover:text-[#003366] transition-colors duration-200 opacity-80" href="portfolio.html">ผลงาน</a>
+<a class="text-slate-600 font-medium h-full flex items-center hover:text-[#003366] transition-colors duration-200" href="contact.html">ติดต่อเรา</a>
+</nav>
+<!-- Trailing Action -->
 <button class="hidden md:flex items-center justify-center bg-secondary-container text-on-secondary-fixed font-label-sm px-6 py-3 rounded hover:bg-opacity-90 transition-all font-bold">
                 ขอใบเสนอราคา
             </button>
-</nav>
+<!-- Mobile Menu Toggle (Placeholder) -->
+<button onclick="toggleMenu()" class="md:hidden p-2 text-on-surface focus:outline-none">
+    <span class="material-symbols-outlined">menu</span>
+</button>
+</div>
 </header>
+        
 <main class="pt-32 pb-24">
 <div class="max-w-[1280px] mx-auto px-8">
 <!-- Hero Header Section -->
@@ -477,3 +486,13 @@
 </div>
 </footer>
 </body></html>
+
+<script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // สั่งให้สลับคลาส hidden (ซ่อน) และ flex (แสดง)
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+    </script>
+</body>
