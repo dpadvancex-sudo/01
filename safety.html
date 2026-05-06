@@ -102,7 +102,8 @@
 </head>
 <body class="bg-surface text-on-surface font-body-md antialiased">
 <!-- TopNavBar -->
-<nav class="bg-white/95 backdrop-blur-md sticky w-full top-0 z-50 border-b border-outline-variant shadow-sm transition-opacity">
+<!-- เพิ่ม id และ class สำหรับแสดงผลบนมือถือ -->
+<nav id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b md:relative md:top-0 md:flex md:w-auto md:bg-transparent md:border-none shadow-lg md:shadow-none flex-col md:flex-row p-6 md:p-8 gap-4 md:gap-8 items-start md:items-center z-50">
 <div class="flex justify-between items-center h-20 px-8 max-w-[1440px] mx-auto w-full">
 <div class="flex items-center gap-4">
 <span class="font-headline-lg text-primary-container text-[24px] tracking-tighter">V-CON Engineering</span>
@@ -121,8 +122,8 @@
             </button>
 </div>
 <!-- Mobile Menu Toggle (Visual Only) -->
-<button class="md:hidden text-primary-container p-2">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+<button onclick="toggleMenu()" class="md:hidden p-2 text-on-surface focus:outline-none">
+    <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </nav>
@@ -248,3 +249,13 @@
 </div>
 </footer>
 </body></html>
+
+<script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            // สั่งให้สลับคลาส hidden (ซ่อน) และ flex (แสดง)
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+    </script>
+</body>
